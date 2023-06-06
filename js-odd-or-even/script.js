@@ -4,17 +4,18 @@ const numberElement = document.getElementById("number");
 const playButton = document.getElementById("playButton");
 const playResultElement = document.getElementById("play-result");
 
-let computerNumber;
-let isSumEven;
+
 
 // Creo una Funzione per generare un numero casuale tra 1 e 5 per il computer
-function generateRandomNumber() {
-    computerNumber = Math.floor(Math.random() * 5) + 1;
+function getRandomNumber() {
+const randomNumber = Math.floor(Math.random() * 5) + 1;
+return randomNumber;
 }
 
 // Creo una Funzione per verificare se la somma dei numeri è pari o dispari
 function checkIfSumIsEven(num) {
-    isSumEven = num % 2 === 0;
+  const  isSumEven = num % 2 === 0;
+  return isSumEven;
 }
 
 // Creo un Event listener per il click del button "Gioca"
@@ -29,16 +30,16 @@ playButton.addEventListener("click", function() {
     }
    
     // Genero un numero casuale per il computer
-    generateRandomNumber();
+    const computerNumber = getRandomNumber();
 
     // Calcolo la somma dei due numeri
     const sum = number + computerNumber;
 
     // Verifico se la somma è pari o dispari
-    checkIfSumIsEven(sum);
+    const isResultEven = checkIfSumIsEven(sum);
     
     // Determino il risultato in base alla scelta dell'utente
-    const result = isSumEven ? "pari" : "dispari";
+    const result = isResultEven ? "pari" : "dispari";
 
     // Creo il messaggio da visualizzare
     let message = `Hai scelto ${choice}. Il numero scelto è ${number}. Il computer ha scelto ${computerNumber}. La somma dei numeri è ${sum}. Risultato: ${result}. `;
